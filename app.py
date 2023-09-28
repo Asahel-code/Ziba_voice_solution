@@ -12,7 +12,7 @@ def initate_call():
     if is_active == '1':
         response = '<?xml version="1.0" encoding="UTF-8"?>'
         response += '<Response>'
-        response += '<GetDigits timeout="30" finishOnKey="#" callbackUrl="https://9826-41-139-168-163.ngrok-free.app/processed_to_next">'
+        response += '<GetDigits timeout="30" finishOnKey="#" callbackUrl="https://zabi-voice.onrender.com/processed_to_next">'
         response += '<Say>Welcome to Ziba. We offer personal training for tech courses for free and welcome voluteers to train newbees. Press 1 if you need access to tech free tech resource. pressed 2 to guide you if you are someone to guide you in your tech journey or press 3 to become a voluteer. After the number follow it with a hash sign</Say>'
         response += '</GetDigits>'
         response += '</Response>'
@@ -30,7 +30,7 @@ def connect_to_expert():
         if dtmfDigits == '1':
             response = '<?xml version="1.0" encoding="UTF-8"?>'
             response += '<Response>'
-            response += '<GetDigits timeout="30" finishOnKey="#" callbackUrl="https://9826-41-139-168-163.ngrok-free.app/access_to_material">'
+            response += '<GetDigits timeout="30" finishOnKey="#" callbackUrl="https://zabi-voice.onrender.com/access_to_material">'
             response += '<Say>We offer reading tech material for frontend developers, backend developer, machine learning and cloud. Press 1 if you need access to tech materail in frontend, press 2 if you need access to tech materail in backend, press 3 if you need access to tech materail in machine learning and press 3 if you need access to tech materail in cloud. After the number follow it with a hash sign</Say>'
             response += '</GetDigits>'
             response += '</Response>'
