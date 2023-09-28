@@ -34,16 +34,23 @@ def connect_to_expert():
             response += '<Say>We offer reading tech material for frontend developers, backend developer, machine learning and cloud. Press 1 if you need access to tech materail in frontend, press 2 if you need access to tech materail in backend, press 3 if you need access to tech materail in machine learning and press 3 if you need access to tech materail in cloud. After the number follow it with a hash sign</Say>'
             response += '</GetDigits>'
             response += '</Response>'
+
+            return Response(response, content_type='application/xml')
+        
         elif dtmfDigits == '2':
             response = '<?xml version="1.0" encoding="UTF-8"?>'
             response += '<Response>'
             response += '<Dial phoneNumbers="+254711959117" />'
             response += '</Response>'
+
+            return Response(response, content_type='application/xml')
         elif dtmfDigits == '3':
             response = '<?xml version="1.0" encoding="UTF-8"?>'
             response += '<Response>'
             response += '<Dial phoneNumbers="+254769339499" />'
             response += '</Response>'
+
+            return Response(response, content_type='application/xml')
 
 @app.route('/access_to_material', methods=['GET', 'POST'])
 def access_to_material():
@@ -53,29 +60,56 @@ def access_to_material():
     callerNumber = request.form.get('callerNumber')
 
     if is_active == '1':
-        if dtmfDigits == '1*1':
-            link = ""
+        if dtmfDigits == '1':
+            link = "https://medium.com/@simongideon918/upscaling-your-github-commit-messages-d360f94843"
             message =f"We have sent you the link to our resource on frontend. Click the link attach {link}"
             sms_client = SMSClient(callerNumber, message)
             sms_client.send_sms()
 
-        elif dtmfDigits == '1*2':
-            link = ""
+            response = '<?xml version="1.0" encoding="UTF-8"?>'
+            response += '<Response>'
+            response += '<Say>Check your inbox a link to the resource has been sent to you</Say>'
+            response += '</Response>'
+
+            return Response(response, content_type='application/xml')
+
+        elif dtmfDigits == '2':
+            link = "https://medium.com/@simongideon918/upscaling-your-github-commit-messages-d360f94843"
             message =f"We have sent you the link to our resource on backend. Click the link attach {link}"
             sms_client = SMSClient(callerNumber, message)
             sms_client.send_sms()
-        elif dtmfDigits == '1*3':
-            link = ""
+
+            response = '<?xml version="1.0" encoding="UTF-8"?>'
+            response += '<Response>'
+            response += '<Say>Check your inbox a link to the resource has been sent to you</Say>'
+            response += '</Response>'
+
+            return Response(response, content_type='application/xml')
+        elif dtmfDigits == '3':
+            link = "https://medium.com/@simongideon918/upscaling-your-github-commit-messages-d360f94843"
             message =f"We have sent you the link to our resource on machine learning. Click the link attach {link}"
             sms_client = SMSClient(callerNumber, message)
             sms_client.send_sms()
-        elif dtmfDigits == '1*4':
-            link = ""
+            response = '<?xml version="1.0" encoding="UTF-8"?>'
+            response += '<Response>'
+            response += '<Say>Check your inbox a link to the resource has been sent to you</Say>'
+            response += '</Response>'
+
+            return Response(response, content_type='application/xml')
+        
+        elif dtmfDigits == '4':
+            link = "https://medium.com/@simongideon918/upscaling-your-github-commit-messages-d360f94843"
             message =f"We have sent you the link to our resource on cloud. Click the link attach {link}"
             sms_client = SMSClient(callerNumber, message)
             sms_client.send_sms()
 
-        return Response(response, content_type='application/xml')
+            response = '<?xml version="1.0" encoding="UTF-8"?>'
+            response += '<Response>'
+            response += '<Say>Check your inbox a link to the resource has been sent to you</Say>'
+            response += '</Response>'
+
+            return Response(response, content_type='application/xml')
+
 
 
 # ===============================================================================================
